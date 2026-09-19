@@ -1,0 +1,233 @@
+:root {
+  font-family: ui-rounded, "Hiragino Maru Gothic ProN", "Yu Gothic", system-ui, sans-serif;
+  color: #3d2b1f;
+  background: #fff7ec;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,.9), transparent 34rem),
+    #fff7ec;
+}
+
+button {
+  font: inherit;
+}
+
+.app {
+  width: min(920px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 44px 0 56px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .22em;
+  color: #a86f45;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(34px, 7vw, 66px);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.lead {
+  margin: 16px 0 0;
+  color: #725746;
+}
+
+.clock-card {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: min(78vw, 700px);
+}
+
+.clock-face {
+  position: relative;
+  width: min(78vw, 650px);
+  aspect-ratio: 1;
+  border: 5px solid #7a4c29;
+  border-radius: 50%;
+  background: rgba(255,255,255,.66);
+  box-shadow: 0 24px 60px rgba(99, 61, 32, .12);
+}
+
+.clock-item {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 112px;
+  text-align: center;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(calc(var(--radius) * -1))
+    rotate(calc(var(--angle) * -1));
+}
+
+.clock-dot {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 5px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #ecd5c0;
+  font-size: 27px;
+  box-shadow: 0 7px 18px rgba(81, 49, 27, .08);
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.clock-label {
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.clock-item.active .clock-dot {
+  transform: scale(1.17);
+  border-color: #7a4c29;
+  background: #ffe5c8;
+}
+
+.center-card {
+  position: absolute;
+  width: min(52vw, 350px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  text-align: center;
+  background: #fffaf4;
+  border: 3px solid #d9b28f;
+  box-shadow: 0 18px 40px rgba(90, 52, 23, .12);
+}
+
+.time {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  color: #a86f45;
+}
+
+.shiba-placeholder {
+  margin-top: 4px;
+  font-size: clamp(58px, 10vw, 96px);
+  filter: drop-shadow(0 6px 3px rgba(0,0,0,.08));
+}
+
+.shiba-art {
+  width: 54%;
+  max-height: 42%;
+  object-fit: contain;
+  margin: 6px 0;
+}
+
+.center-card h2 {
+  margin: 5px 0 7px;
+  font-size: clamp(18px, 3vw, 28px);
+}
+
+.center-card p {
+  min-height: 2.7em;
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #725746;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  min-height: 44px;
+  padding: 0 17px;
+  border: 2px solid #d7b89d;
+  border-radius: 999px;
+  background: #fff;
+  color: #4c3424;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  transform: translateY(-1px);
+}
+
+.controls .primary {
+  border-color: #7a4c29;
+  background: #7a4c29;
+  color: white;
+}
+
+.hint {
+  margin: 18px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #927564;
+}
+
+@media (max-width: 640px) {
+  .app {
+    padding-top: 28px;
+  }
+
+  .clock-card {
+    min-height: 94vw;
+  }
+
+  .clock-face {
+    width: 92vw;
+    max-width: 92vw;
+  }
+
+  .clock-item {
+    width: 82px;
+    --radius: 40vw !important;
+  }
+
+  .clock-dot {
+    width: 43px;
+    height: 43px;
+    font-size: 22px;
+  }
+
+  .clock-label {
+    font-size: 10px;
+  }
+
+  .center-card {
+    width: 48vw;
+    padding: 18px;
+  }
+
+  .center-card p {
+    font-size: 11px;
+  }
+}
